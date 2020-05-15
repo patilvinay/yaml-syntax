@@ -2,14 +2,23 @@
 
 # yaml-syntax
 
-kalpa module
+check the yaml file for any possible syntax error
 
 ## getting started
-see: [kalpa](https://www.npmjs.com/package/kalpa)
 
-### Style guide
+```
+var fs = require('fs');
+var check = require('yaml-syntax');
 
-[Airbnb style-guide](https://github.com/airbnb/javascripthttps://github.com/airbnb/javascript)
+var file = __dirname + '/test.yaml';
+var src = fs.readFileSync(file);
+
+var err = check(src, file);
+if (err) {
+    console.error(err);
+    console.error(Array(76).join('-'));
+}
+```
 
 [npm-image]: https://badge.fury.io/js/yaml-syntax.svg
 [npm-url]: https://npmjs.org/package/yaml-syntax
